@@ -1,0 +1,111 @@
+import bpy
+import re #Regular Expressions package
+import math #used to rotate circles
+
+# selects all objects
+bpy.ops.object.select_all(action='SELECT')
+# deletes all objects to ensure clean slate
+bpy.ops.object.delete()
+
+def add_background(filepath):
+    img = bpy.data.images.load(filepath)
+    for area in bpy.context.screen.areas:
+        if area.type == 'VIEW_3D':
+            space_data = area.spaces.active
+            bg = space_data.background_images.new()
+            bg.image = img
+            space_data.show_background_images = True
+            break
+
+    texture = bpy.data.textures.new("Texture.001", 'IMAGE')
+    texture.image = img
+    bpy.data.worlds['World'].active_texture = texture
+    bpy.context.scene.world.texture_slots[0].use_map_horizon = True
+
+radii=[] #Set up the lists we need to put data in
+phase=[]
+with open(r'C:\Users\srivi\Downloads\K2106Structure.txt') as file: #open file
+    lines = file.readlines()
+    for line in lines[len(lines):1:-1]: #Read file backwards and last line
+        line = line.strip()
+        div=re.split('\t',line) #Splits each line at tabs - aka splits up columns
+        #IF ERROR OCCURES check if file has a blank line at bottom and delete it
+        radii.append(float(div[1])) #radii in column 1 change to float
+        phase.append(div[6]) #phase name in colun 6
+
+dummyphase='name' #Set up a variable to compare to
+rofphasechange=[] #Save radii whenever the phase changes
+for i in range(len(phase)):
+    if phase[i]!=dummyphase: #check if phase changes
+        rofphasechange.append(radii[i])
+        dummyphase=phase[i]
+# this gets desired values for indicator for boundaries
+
+dummyphase1='name'
+rofphasechange1=[]
+for i in range(len(phase)):
+    if phase[i]!=dummyphase1:
+        rofphasechange1.append(phase[i])
+        dummyphase1=phase[i]
+
+#gets a (radius,phase) pair 
+
+import bpy
+print(rofphasechange)
+rof = rofphasechange[0]
+print(rof)
+#needed for the position for colorRamp as it can only go to 1
+my_divisor = 3
+rof1 = [x/ my_divisor for x in rofphasechange]
+print(rof1)
+
+rof_ = rof1[0]
+print(rof_)
+
+
+# to make circles as a incidator for bounds
+for a in rof1:
+    bpy.ops.mesh.primitive_circle_add(vertices=32, radius=a, fill_type='NOTHING', calc_uvs=True, enter_editmode=False, align='WORLD', location=(0.0, 0.0, 0.0), rotation=(0.0, 0.0, 0.0), scale=(0.0, 0.0, 0.0))
+    bpy.ops.mesh.primitive_circle_add(vertices=32, radius=a, fill_type='NOTHING', calc_uvs=True, enter_editmode=False, align='WORLD', location=(0.0, 0.0, 0.0), rotation=(0.0, math.radians(90), 0.0), scale=(0.0, 0.0, 0.0))
+    bpy.ops.mesh.primitive_circle_add(vertices=32, radius=a, fill_type='NOTHING', calc_uvs=True, enter_editmode=False, align='WORLD', location=(0.0, 0.0, 0.0), rotation=(math.radians(90), 0.0, 0.0), scale=(0.0, 0.0, 0.0))
+    
+
+#generates prmitive sphere
+bpy.ops.mesh.primitive_uv_sphere_add(radius = rof_, enter_editmode=False, align='WORLD', location=(0,0,0), scale=(1,1,1))
+
+#adds modifier to primitive sphere with thickness equal to largest radii
+bpy.ops.object.modifier_add(type='SOLIDIFY')
+bpy.context.object.modifiers["Solidify"].thickness = rof_
+
+# To smooth the shading of the uv sphere
+bpy.ops.object.shade_smooth()
+#adds boolean modifier to cut through sphere using cube
+bpy.ops.object.modifier_add(type='BOOLEAN')
+bpy.ops.mesh.primitive_cube_add(size=2*rof_, calc_uvs=True, enter_editmode=False, align='WORLD', location=(rof_, rof_, rof_), rotation=(0.0, 0.0, 0.0), scale=(1, 1, 1))
+
+#selects sphere
+# Deselect all objects
+bpy.ops.object.select_all(action='DESELECT')
+
+for o in bpy.data.objects:
+    # Check for given object names
+    if o.name in ("Sphere","Sphere0.001"):
+        o.select_set(True)
+        bpy.context.view_layer.objects.active = bpy.data.objects[o.name]
+#sets selected sphere as active object for modifier
+
+#assigns the cube as the object that will 'cut' the sphere as desired difference
+print(list(bpy.context.object.modifiers))
+bpy.context.object.modifiers["Boolean"].object = bpy.data.objects["Cube"]
+#applies the boolean difference 
+bpy.ops.object.modifier_apply(modifier="Boolean")
+#de-selects all objects 
+bpy.ops.object.select_all(action='DESELECT')
+#only selects the cube 
+bpy.data.objects["Cube"].select_set(True)
+bpy.ops.object.delete()
+#deletes selected object
+
+
+
+

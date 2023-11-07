@@ -1,5 +1,5 @@
 # Blender-Magrathea - 3D Planet Builder
-Completed by: Srivishal Sudharsan
+Completed by: Srivishal Sudharsan <br>
 Mentored By: David Rice
  <p align="center">
 <img width = "500" src="planet443%235.png"/>

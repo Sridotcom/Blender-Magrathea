@@ -5,7 +5,7 @@ Blender 3D planet builder: Takes in Magrathea outputs and automatically builds r
 <img width = "300" src="planet443%235.png"/>
  </p>
 
-Step-by-Step Instruction:
+## Step by Step Instructions
 1. Download Blender: https://www.blender.org/download/
 2. Once Open - under New File press General
 3. In the top bar select Scripting
@@ -19,7 +19,7 @@ Step-by-Step Instruction:
 11. The interior of the planet should be complete now!
 
 
-How to change the way a material looks:
+## How to change how a material looks
 If you don't like the way a layer looks then select it in the "Layout" tab. Click on the sphere that you want to change and it will be outlined in yellow. Alternatively, you can select a sphere via the 'Scene Collecction" section in the top right. Once a sphere is selected, click on the "Shading" tab in the top toolbar. On the bottom window ensure that "Use Nodes" is checked. Now you should see the Node Setup (bottom window) for the selected material (top window). Each box represents a node and they each code for an aspect of the material. 
 
 If you want to alter the way the material looks you can simply click on a factor in one of the nodes such as Roughness, Sheen, Scale, etc, and enter a new number. It will get updated in the top window. To make more drastic changes you can also add new nodes via the "Add" button in the top left of the bottom window. This video provides a good introduction to nodes and how to alter materials using them: https://www.youtube.com/watch?v=moKFSMJwpmE&ab_channel=GrantAbbitt. This link gives an overview on what each node does: https://docs.blender.org/manual/en/latest/render/shader_nodes/index.html.

@@ -3,7 +3,9 @@ Completed by: Srivishal Sudharsan <br>
 Mentored By: Dr. David Rice (Post Doctoral Researcher at The Open University of Israel)
 
 ## What does Blender-Magrathea do?
-Given the internal properties of a planet (namely radius, material, and density) Blender-Magrathea will automatically create a cross-sectional 3D model of the planet. The planet can also be modeled by [density](https://github.com/Sridotcom/Blender-Magrathea/blob/bfc01bba2d67828b14456e416e70073423a341d3/Density.py) to determine how various materials affect the internal makeup. Blender-Magrathea is a useful resource for researchers to help visualize their results and present them to the public. The code currently supports [Magrathea](https://github.com/DavidRRice/Magrathea) output files which take in the mass of the various layers of a planet (core, mantle, hydrosphere, and atmosphere) and return the pressure, temperature, density, and phase of the planet at various radii. An example output is shown below.
+Given the internal properties of a planet (namely the radius, phase of matter, and density of n layers) Blender-Magrathea will automatically create a cross-sectional 3D model of the planet. The planet can also be modeled by [density](https://github.com/Sridotcom/Blender-Magrathea/blob/bfc01bba2d67828b14456e416e70073423a341d3/Density.py) to determine how various materials affect the internal makeup. <br>
+
+Blender-Magrathea is a useful resource for researchers to help visualize their results and present them to the public. The code currently supports [Magrathea](https://github.com/DavidRRice/Magrathea) output files, which take in the mass of the various layers of a planet (core, mantle, hydrosphere, and atmosphere) and return the pressure, temperature, density, and phase of the planet at various radii. An example output is shown below.
 
  <p align="center">
 <img width = "500" src="planet443%235.png"/>

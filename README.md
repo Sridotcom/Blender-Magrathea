@@ -7,14 +7,9 @@ Blender-Magrathea is a useful resource for researchers to visualize planets in a
 
 The layers of the planets are textured according to the type of material (ice, water, iron, silicon, etc.) They can also be colored by [density](https://github.com/Sridotcom/Blender-Magrathea/blob/bfc01bba2d67828b14456e416e70073423a341d3/Density.py), to better understand how different phases of matter or materials can affect planet density. The code currently supports [Magrathea](https://github.com/DavidRRice/Magrathea) output files, which take in the mass of the various layers of a planet (core, mantle, hydrosphere, and atmosphere) and return the pressure, temperature, density, and phase of the planet at various radii. Example outputs of planets modelled by phase and density are shown below.
 
-<div style="display: flex;">
-  <div style="flex: 1; padding: 10px;">
-    <img width="400" src="planet443%235.png" />
-  </div>
-  <div style="flex: 1; padding: 10px;">
-    <img width="400" src="https://github.com/Sridotcom/Blender-Magrathea/assets/66920443/7f6bd83e-fc86-4901-9853-8f26ac6a374c" />
-  </div>
-</div>
+
+![Image 1](planet443%235.png){: style="height:83px"}
+![Image 2](https://github.com/Sridotcom/Blender-Magrathea/assets/66920443/7f6bd83e-fc86-4901-9853-8f26ac6a374c){: style="height:83px"}
 
 ## Step by Step Instructions
 1. Download Blender: https://www.blender.org/download/

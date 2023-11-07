@@ -3,9 +3,15 @@ Completed by: Srivishal Sudharsan <br>
 Mentored By: Dr. David Rice (Post Doctoral Researcher at The Open University of Israel)
 
 ## What does Blender-Magrathea do?
-Blender-Magrathea is a useful resource for researchers to visualize planets in a scientifically accurate manner, and present them to the public. Given the internal properties of a planet (namely the radii, phases of matter, and densities of its N layers) Blender-Magrathea will automatically create a cross-sectional 3D model of the planet. <br>
+Blender-Magrathea is a useful resource for researchers to visualize planets in a scientifically accurate manner, and present them to the public. <br>
 
-The layers of the planets are textured according to the type of material (ice, water, iron, silicon, etc.) They can also be colored by [density](https://github.com/Sridotcom/Blender-Magrathea/blob/bfc01bba2d67828b14456e416e70073423a341d3/Density.py), to better understand how different phases of matter or materials can affect planet density. The code currently supports [Magrathea](https://github.com/DavidRRice/Magrathea) output files, which take in the mass of the various layers of a planet (core, mantle, hydrosphere, and atmosphere) and return the pressure, temperature, density, and phase of the planet at various radii. Example outputs of planets modelled by phase and density are shown below.
+Given the internal properties of a planet (namely the radii, phases of matter, and densities of its N layers) Blender-Magrathea will automatically create a cross-sectional 3D model of the planet. <br>
+
+The layers of the planets are textured according to the type of material (ice, water, iron, silicon, etc.) They can also be colored by [density](https://github.com/Sridotcom/Blender-Magrathea/blob/bfc01bba2d67828b14456e416e70073423a341d3/Density.py), to better understand how different phases of matter or materials can affect planet density. <br>
+
+The code currently supports [Magrathea](https://github.com/DavidRRice/Magrathea) output files, which take in the mass of the various layers of a planet (core, mantle, hydrosphere, and atmosphere) and return the pressure, temperature, density, and phase of the planet at various radii. Example outputs of planets modelled by phase and density are shown below.
+
+
 
 <div style="display: flex;">
   <div style="flex: 50%; padding: 10px;">

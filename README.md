@@ -10,9 +10,9 @@ The layers of the planets are textured according to the type of material (ice, w
 
  <p align="left">
 <img width = "400" src="planet443%235.png"/>
- </p>
 
-  <p align="right">
+
+ align="right">
 <img width = "400" src="https://github.com/Sridotcom/Blender-Magrathea/assets/66920443/7f6bd83e-fc86-4901-9853-8f26ac6a374c"/>
  </p>
 

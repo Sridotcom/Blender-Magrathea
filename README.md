@@ -1,9 +1,15 @@
-# Blender-Magrathea
-Blender 3D planet builder: Takes in Magrathea outputs and automatically builds realistic and appealing 3-D interior models
-
+# Blender-Magrathea - 3D Planet Builder
+Completed by: Srivishal Sudharsan
+Mentored By: David Rice
  <p align="center">
 <img width = "300" src="planet443%235.png"/>
  </p>
+
+## What does Blender-Magrathea do?
+
+Hello! Blender-Magrathea is a program that takes in a Magrath
+
+ 
 
 ## Step by Step Instructions
 1. Download Blender: https://www.blender.org/download/

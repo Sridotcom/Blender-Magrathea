@@ -5,13 +5,17 @@ Mentored By: Dr. David Rice (Post Doctoral Researcher at The Open University of 
 ## What does Blender-Magrathea do?
 Blender-Magrathea is a useful resource for researchers to visualize planets in a scientifically accurate manner, and present them to the public. Given the internal properties of a planet (namely the radii, phases of matter, and densities of its N layers) Blender-Magrathea will automatically create a cross-sectional 3D model of the planet. <br>
 
-The layers of the planets are textured according to the type of material (ice, water, iron, silicon, etc.) They can also be colored by [density](https://github.com/Sridotcom/Blender-Magrathea/blob/bfc01bba2d67828b14456e416e70073423a341d3/Density.py), to better understand how different phases of matter or materials can affect planet density. The code currently supports [Magrathea](https://github.com/DavidRRice/Magrathea) output files, which take in the mass of the various layers of a planet (core, mantle, hydrosphere, and atmosphere) and return the pressure, temperature, density, and phase of the planet at various radii. An example output is shown below.
+The layers of the planets are textured according to the type of material (ice, water, iron, silicon, etc.) They can also be colored by [density](https://github.com/Sridotcom/Blender-Magrathea/blob/bfc01bba2d67828b14456e416e70073423a341d3/Density.py), to better understand how different phases of matter or materials can affect planet density. The code currently supports [Magrathea](https://github.com/DavidRRice/Magrathea) output files, which take in the mass of the various layers of a planet (core, mantle, hydrosphere, and atmosphere) and return the pressure, temperature, density, and phase of the planet at various radii. Example outputs of planets modelled by phase and density are shown below.
 
 
- <p align="center">
+ <p align="left">
 <img width = "500" src="planet443%235.png"/>
  </p>
- 
+
+  <p align="right">
+<img width = "500" src="https://github.com/Sridotcom/Blender-Magrathea/assets/66920443/7f6bd83e-fc86-4901-9853-8f26ac6a374c"/>
+ </p>
+
 
 ## Step by Step Instructions
 1. Download Blender: https://www.blender.org/download/

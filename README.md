@@ -14,7 +14,7 @@ The code currently supports [Magrathea](https://github.com/DavidRRice/Magrathea)
 
 | Phase model                            | Density model                            |
 | ----------------------------------- | ----------------------------------- |
-| ![phase](planet443%235.png) | ![density](https://github.com/Sridotcom/Blender-Magrathea/assets/66920443/7f6bd83e-fc86-4901-9853-8f26ac6a374c) |
+| ![phase](planet443%235.png) | ![density](https://github.com/Sridotcom/Blender-Magrathea/assets/66920443/7f6bd83e-fc86-4901-9853-8f26ac6a374c)(width="200" height="100") |
 
 
 ## Step by Step Instructions

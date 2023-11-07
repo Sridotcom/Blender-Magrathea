@@ -11,10 +11,10 @@ The layers of the planets are textured according to the type of material (ice, w
 
 The code currently supports [Magrathea](https://github.com/DavidRRice/Magrathea) output files, which take in the mass of the various layers of a planet (core, mantle, hydrosphere, and atmosphere) and return the pressure, temperature, density, and phase of the planet at various radii. Example outputs of planets modelled by phase and density are shown below.
 
-
-| Phase model                            | Density model                            |
-| ----------------------------------- | ----------------------------------- |
-| ![phase](planet443%235.png) | ![density](https://github.com/Sridotcom/Blender-Magrathea/assets/66920443/7f6bd83e-fc86-4901-9853-8f26ac6a374c)(width="200" height="100") |
+<p float="left">
+  <img src="planet443%235.png" width="50%" />
+  <img src="https://github.com/Sridotcom/Blender-Magrathea/assets/66920443/7f6bd83e-fc86-4901-9853-8f26ac6a374c" width="50%" />
+</p>
 
 
 ## Step by Step Instructions

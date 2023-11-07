@@ -13,7 +13,7 @@ The code currently supports [Magrathea](https://github.com/DavidRRice/Magrathea)
 
 <p float="left">
   <img src="planet443%235.png" width="49%" />
-  <img src="https://github.com/Sridotcom/Blender-Magrathea/assets/66920443/7f6bd83e-fc86-4901-9853-8f26ac6a374c" width="49%" />
+  <img src="https://github.com/Sridotcom/Blender-Magrathea/assets/66920443/7f6bd83e-fc86-4901-9853-8f26ac6a374c" width="49%" height="50cm" />
 </p>
 
 

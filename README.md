@@ -2,7 +2,7 @@
 Completed by: Srivishal Sudharsan
 Mentored By: David Rice
  <p align="center">
-<img width = "300" src="planet443%235.png"/>
+<img width = "500" src="planet443%235.png"/>
  </p>
 
 ## What does Blender-Magrathea do?

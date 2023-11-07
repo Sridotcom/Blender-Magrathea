@@ -1,6 +1,6 @@
 # Blender-Magrathea - 3D Planet Builder
 Completed by: Srivishal Sudharsan <br>
-Mentored By: David Rice
+Mentored By: Dr. David Rice (Post Doctoral Researcher at The Open University of Israel)
  <p align="center">
 <img width = "500" src="planet443%235.png"/>
  </p>

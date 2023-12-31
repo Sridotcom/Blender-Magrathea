@@ -19,7 +19,7 @@ for o in bpy.data.objects:
         bpy.data.objects.remove(o, do_unlink=True)
         
 # INSERT FILE PATH IN BETWEEN QUOTATION MARKS
-file_name = r'C:\Users\srivi\Downloads\StructureEarth.txt'
+file_name = r'C:\Users\srivi\Downloads\Structure443.txt'
 #DO REGEX HERE
 
 
@@ -109,7 +109,6 @@ cut_cube = bpy.context.object
 
 
 lst_of_sphere.append(circle)
-circle = lst_of_sphere[0]
 bool_one = circle.modifiers.new(type="BOOLEAN", name = "bool 1")
 bool_one.object = cut_cube
 bool_one.operation = "DIFFERENCE"
@@ -144,29 +143,9 @@ for line in lines[1:-1]:
     dens.append(float(div[4])) #density g/cm^3
     inf.close()
     
-#Color Options: viridis, plasma, summer, autumn, winter, neon, gem, eclipse, sepia
-file_name = r"C:\Users\drice\OneDrive\Desktop\Blender\colormaps.txt"
-colorname='plasma' #choose name from above
-inf=open(file_name,'r') ##file of 1000 points from each matplotlib colormaps
-lines=inf.readlines()
-for l in range(len(lines)):
-    div=re.split('\s',lines[l])
-    if div[1]==colorname: #Find line with name provided
-        cmap=ast.literal_eval(lines[l+1]) #Cmap=list of 1000 colors
-
-
-inf=open(r"C:\Users\drice\OneDrive\Desktop\Blender\StructMant4.txt",'r')
-lines=inf.readlines()
-rad=[]
-dens=[]
-for line in lines[1:-1]:
-    div=re.split('\s{2,}',line)
-    rad.append(float(div[1])) #radius Earth Radii
-    dens.append(float(div[4])) #density g/cm^3
-    inf.close()
     
-mindens=3  #minimum density for colormap
-maxdens=6 #maximum desnity for colormap
+mindens=min(dens)  #minimum density for colormap
+maxdens=max(dens) #maximum desnity for colormap
 stepsize=(maxdens-mindens)/40
 
 #denscolors=[] #list of colors 
@@ -175,17 +154,49 @@ stepsize=(maxdens-mindens)/40
 #    normalize=(maxdens-i)/(maxdens-mindens)  #Find position from 0-1 of density between min and max desnity
 #    location=int(normalize*1000) #Round the above number to nearest thousandth and multiply by 1000
 #    denscolors.append(cmap[location]) #get colors to apply to given density
+
+print(len(cmap))
     
 denscolors=[]
 densrad=[]
 dumbdens=0
 for i in range(len(dens)):
-    if dens[i] > dumbdens+stepsize:
+    if i == 0 or dens[i] < dumbdens-stepsize:
         normalize=(maxdens-dens[i])/(maxdens-mindens)  #Find position from 0-1 of density between min and max desnity
         location=int(normalize*1000) #Round the above number to nearest thousandth and multiply by 1000
-        denscolors.append(cmap[location]) #get colors to apply to given density 
+        print(location)
+        try:
+            denscolors.append(cmap[location]) #get colors to apply to given density 
+        except:
+            pass
+            raise RuntimeError(f"{stepsize}, {len(dens)}, {len(cmap)}, {location}, {normalize}, {dens[i]}, {mindens}, {maxdens}")
         densrad.append(rad[i])
         dumbdens=dens[i]
+
+#raise RuntimeError(f"{densrad}, {dumbdens}")
+
+bpy.ops.mesh.primitive_uv_sphere_add(radius=densrad[9], location=(0.0, 0, 0.0), rotation=(0.0, 0.0, 0.0))
+
+
+#Darker Red Rock
+scene = bpy.context.scene
+node_tree = scene.node_tree
+Rock_2_r = bpy.data.materials.new(name="Lighter Red Rock")
+Rock_2_r.use_nodes = True
+nodes = Rock_2_r.node_tree.nodes
+links = Rock_2_r.node_tree.links
+bsdf =  Rock_2_r.node_tree.nodes['Principled BSDF']
+color_ramp = nodes.new("ShaderNodeValToRGB")
+color_ramp.location = (-300,200)
+tex = nodes.new("ShaderNodeTexNoise")
+tex.location = (-600, 200)
+tex.inputs["Scale"].default_value = 19.4
+tex.inputs["Detail"].default_value = 15
+tex.inputs["Roughness"].default_value = 0.6
+links.new(tex.outputs["Fac"], color_ramp.inputs[0] )
+links.new(color_ramp.outputs["Color"], bsdf.inputs["Base Color"])
+color_ramp.color_ramp.elements[1].position = (0.7)
+color_ramp.color_ramp.elements[1].color = (0.156,0.034,0.023,1)
 
 #Surface Mars
 scene = bpy.context.scene
@@ -236,7 +247,10 @@ color_ramp.color_ramp.elements.remove(color_ramp.color_ramp.elements[0])
 
 
 for old_radius in densrad:
-    new_value = ((old_radius - old_min) / (old_max - old_min)) + 0
+    try:
+        new_value = ((old_radius - old_min) / (old_max - old_min)) + 0
+    except:
+        raise RuntimeError(f"{old_min}, {old_max}, {densrad}")
     normalized_radius.append(new_value)
 
 
@@ -251,3 +265,33 @@ color_ramp.color_ramp.elements.remove(color_ramp.color_ramp.elements[-1])
 
 
 circle.data.materials.append(ice_surface)
+
+
+
+bpy.ops.mesh.primitive_uv_sphere_add(radius=10*rof1[0] + 0.0001, location=(0.0, 0, 0.0), rotation=(0.0, 0.0, 0.0))
+circle2 = bpy.context.object
+bpy.ops.object.shade_smooth()
+
+
+rof_ = 10*rof1[0]
+
+
+len_sphere = len(lst_of_sphere) - 1
+
+
+bpy.ops.mesh.primitive_cube_add(size=rof_, location=(0.5*rof_, 0.5*rof_, 0.5*rof_) ,rotation=(0.0, 0.0, 0.0))
+cut_cube = bpy.context.object
+
+
+lst_of_sphere.append(circle2)
+bool_one = circle2.modifiers.new(type="BOOLEAN", name = "bool 1")
+bool_one.object = cut_cube
+bool_one.operation = "DIFFERENCE"
+cut_cube.hide_set(True)
+
+
+bool_one = circle2.modifiers.new(type="BOOLEAN", name = "bool 1")
+bool_one.object = circle
+bool_one.operation = "DIFFERENCE"
+
+circle2.data.materials.append(Rock_2_r)
